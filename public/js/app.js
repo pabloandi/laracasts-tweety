@@ -34437,10 +34437,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./resources/css/main.css":
+/*!********************************!*\
+  !*** ./resources/css/main.css ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -49601,7 +49601,7 @@ Vue.compile = compileToFunctions;
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
 /******/ 			["./resources/sass/app.scss"],
-/******/ 			["./resources/css/app.css"]
+/******/ 			["./resources/css/main.css"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		

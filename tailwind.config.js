@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: 'tw_',
+//   prefix: 'tw_',
   purge: [
     './resources/**/*.blade.php',
     './resources/**/*.js',

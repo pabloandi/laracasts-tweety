@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "tweety",
+            "database": "${workspaceFolder:tweety}/database/database.sqlite",
+            "group": "f"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

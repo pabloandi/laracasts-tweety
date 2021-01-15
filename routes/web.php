@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TweetController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', [TweetController::class, 'index'])->name('home');
+    Route::resource('tweets', TweetController::class);
+
 });
 
-Auth::routes();
+Route::get('profile/{user}', [ProfileController::class, 'show'])->name('profile');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
