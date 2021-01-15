@@ -23,6 +23,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-Route::get('profile/{user}', [ProfileController::class, 'show'])->name('profile');
+Route::get('profile/{user:slug}', [ProfileController::class, 'show'])->name('profile');
 
 Auth::routes();

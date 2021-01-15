@@ -8,6 +8,8 @@
                         src="{{ $follow->avatar }}"
                         alt="Avatar"
                         class="rounded-full mr-2"
+                        width="40"
+                        height="40"
                     >
                     {{ $follow->name }}
                 </a>

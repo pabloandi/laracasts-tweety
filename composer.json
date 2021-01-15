@@ -37,6 +37,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Tweety\\": "Tweety/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

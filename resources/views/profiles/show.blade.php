@@ -1,23 +1,34 @@
-@extends('layouts.app')
+<x-app>
+    <header class="mb-6" style="position: relative;">
+        <img
+            src="/images/default-profile-banner.png"
+            alt="banner"
+            class="rounded-3xl mb-2"
+        >
 
-@section('content')
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <h2 class="font-bold text-2xl">{{ $user->name }}</h2>
+                <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }} </p>
+            </div>
 
-<header class="mb-6">
-    <img class="rounded-3xl" src="/images/default-profile-banner.png" alt="banner">
-
-    <div class="flex justify-between">
-        <div>
-            <h2 class="font-bold">{{ $user->name }}</h2>
-            <p class="">Joined {{ $user->created_at->diffForHumans() }} </p>
+            <div>
+                <a href="#" class="tweet-button is-default mr-2">Edit Profile</a>
+                <a href="#" class="tweet-button is-active">Follow me</a>
+            </div>
         </div>
 
-        <div>
-            <a href="#" class="tweet-button is-default">Edit Profile</a>
-            <a href="#" class="tweet-button is-active">Follow me</a>
-        </div>
-    </div>
-</header>
+        <img
+            src="{{ $user->avatar }}"
+            alt="Avatar"
+            class="profile-avatar"
+        >
 
-@include('_timeline-list', ['tweets' => $user->tweets])
+        <p class="text-sm"> {{ $user->description }}</p>
 
-@endsection
+    </header>
+
+    @include('_timeline-list', ['tweets' => $user->tweets])
+
+</x-app>
+

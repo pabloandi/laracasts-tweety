@@ -13,7 +13,6 @@
 }
 
 .timeline {
-    @apply bg-green-100;
     @apply lg:flex-1 lg:mx-10;
     max-width: 700px;
 }
@@ -49,5 +48,20 @@
     @apply lg:w-1/6;
 }
 
+.profile-avatar {
+    @apply rounded-full absolute bottom-0 transform -translate-x-1/2 -translate-y-1/2;
+    width: 150px;
+    left: 50%
+}
 
+.container {
+    @apply mx-auto px-6 py-4 bg-gray-400;
+}
 
+.card-header {
+    @apply font-bold text-lg mb-4;
+}
+
+.app  {
+    max-width: 1600px;
+}

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Tweety\Traits\User\Followable;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'description',
         'slug',
         'email',
         'password',
@@ -45,7 +48,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return "https://i.pravatar.cc/40?u=" . $this->email;
+        return "https://i.pravatar.cc/200?u=" . $this->email;
     }
 
     public function getProfileRouteAttribute()
@@ -68,31 +71,6 @@ class User extends Authenticatable
             ->take(5)
             ->get();
     }
-
-    public function follow(User $user)
-    {
-        return $this->follows()->attach($user);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id','following_user_id');
-    }
-
-
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-
-
 
 
     protected static function booting()

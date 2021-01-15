@@ -15,9 +15,11 @@
                 src="{{ auth()->user()->avatar }}"
                 alt="Avatar"
                 class="rounded-full mr-2"
+                width="40"
+                height="40"
             >
 
-            <button type="submit" class="tweet-button">Tweet a ro!</button>
+            <button type="submit" class="tweet-button is-active">Tweet a ro!</button>
         </footer>
 
     </form>
