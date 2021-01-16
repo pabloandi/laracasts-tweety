@@ -40,7 +40,10 @@
             "Tweety\\": "Tweety/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "Tweety/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

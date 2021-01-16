@@ -17,16 +17,19 @@ class DatabaseSeeder extends Seeder
     {
 
         $john = User::factory()->create([
+            'username' => 'johndoe',
             'name' => 'John Doe',
             'email' => 'john@doe.com'
         ]);
 
         $jane = User::factory()->create([
+            'username' => 'janedoe',
             'name' => 'Jane Doe',
             'email' => 'jane@doe.com'
         ]);
 
         $mark = User::factory()->create([
+            'username' => 'markdoe',
             'name' => 'Mark Doe',
             'email' => 'mark@doe.com'
         ]);

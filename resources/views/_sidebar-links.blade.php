@@ -18,7 +18,7 @@
         <a href="#">Lists</a>
     </li>
     <li>
-        <a href="{{ Auth::user()->profileRoute }}">Profile</a>
+        <a href="{{ current_user()->profileRoute }}">Profile</a>
     </li>
     <li>
         <a href="#">More</a>

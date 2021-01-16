@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TweetController;
 use App\Models\User;
@@ -19,10 +20,16 @@ use Illuminate\Support\Facades\Auth;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [TweetController::class, 'index'])->name('home');
-    Route::resource('tweets', TweetController::class);
 
+    Route::resource('tweets', TweetController::class);
+    Route::resource('profile', ProfileController::class)->except(['show'])->parameters([
+        'profile' => 'user'
+    ]);
+
+    Route::post('profile/{user:username}/follow', [FollowsController::class, 'store'])->name('profile.follow');
 });
 
-Route::get('profile/{user:slug}', [ProfileController::class, 'show'])->name('profile');
+Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile.show');
+
 
 Auth::routes();

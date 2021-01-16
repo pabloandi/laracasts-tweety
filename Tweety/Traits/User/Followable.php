@@ -11,12 +11,12 @@ trait Followable
 {
     public function isFollowing(User $user)
     {
-        # code...
+        return $this->follows()->where('following_user_id',$user->id)->exists();
     }
 
     public function follow(User $user)
     {
-        return $this->follows()->attach($user);
+        $this->follows()->toggle($user);
     }
 
     public function follows()

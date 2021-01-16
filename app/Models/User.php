@@ -20,9 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'username',
         'name',
         'description',
-        'slug',
         'email',
         'password',
     ];
@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function getProfileRouteAttribute()
     {
-        return route('profile', $this);
+        return route('profile.show', $this);
     }
 
     public function tweets()
@@ -68,15 +68,14 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id',$follows)
             ->orWhere('user_id', $this->id)
             ->latest()
-            ->take(5)
             ->get();
     }
 
 
-    protected static function booting()
+
+    public function getRouteKeyName()
     {
-        static::creating(function($user){
-            $user->slug = Str::slug($user->name);
-        });
+        return 'username';
     }
+
 }
