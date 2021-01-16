@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TweetController;
@@ -27,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
     ]);
 
     Route::post('profile/{user:username}/follow', [FollowsController::class, 'store'])->name('profile.follow');
+    Route::get('explore', [ExploreController::class, 'index'])->name('explore.index');
 });
 
 Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile.show');

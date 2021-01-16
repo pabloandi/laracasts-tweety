@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -74,7 +76,23 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validated = $request->validate([
+            'username' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user->id), 'alpha_dash'],
+            'name' => ['required', 'string', 'max:255'],
+            'avatar' => ['file'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        if($request->has('avatar')){
+            $validated['avatar'] = $request['avatar']->store('avatars');
+            Storage::delete($user->avatar);
+
+        }
+
+        $user->update($validated);
+
+        return redirect()->route('profile.show', $user);
     }
 
     /**

@@ -54,14 +54,63 @@
     left: 50%
 }
 
+.app  {
+    max-width: 1600px;
+}
+
+
 .container {
-    @apply mx-auto px-6 py-4 bg-gray-400;
+    @apply mx-auto flex justify-center;
+}
+
+.card {
+    @apply px-12 py-6 bg-gray-200 rounded-lg;
+    @apply border border-gray-300;
 }
 
 .card-header {
     @apply font-bold text-lg mb-4;
 }
 
-.app  {
-    max-width: 1600px;
+.form-group {
+
 }
+
+.form-group.row {
+    @apply mb-4;
+}
+
+.form-group.row label {
+    @apply font-bold text-gray-600;
+}
+
+.form-group.row input[type=text],input[type=email],input[type=password] {
+    @apply focus-within:outline-none;
+    @apply border border-gray-400 p-2 w-full;
+}
+
+.form-check {
+    @apply flex items-center text-sm
+}
+
+.form-check > :first-child {
+    @apply w-1/12
+}
+
+.form-check > :last-child {
+    @apply flex-1
+}
+
+.form-group .btn {
+    @apply tweet-button;
+    @apply text-sm;
+}
+
+.form-group .btn-primary {
+    @apply is-active;
+}
+
+.form-group .btn-link {
+    @apply is-default;
+}
+

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Tweety\Traits\User\Followable;
 
@@ -22,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'name',
+        'avatar',
         'description',
         'email',
         'password',
@@ -46,14 +48,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatarAttribute()
-    {
-        return "https://i.pravatar.cc/200?u=" . $this->email;
-    }
-
     public function getProfileRouteAttribute()
     {
         return route('profile.show', $this);
+    }
+
+    public function getAvatarAttribute($value)
+    {
+        $path =  $value ? "storage/{$value}" : '/images/default-avatar.png';
+        return asset($path);
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
 
     public function tweets()
@@ -68,6 +76,7 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id',$follows)
             ->orWhere('user_id', $this->id)
             ->latest()
+            ->take(10)
             ->get();
     }
 

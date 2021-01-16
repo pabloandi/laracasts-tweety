@@ -2,7 +2,7 @@
     <header class="mb-6" style="position: relative;">
         <div class="relative">
             <img
-                src="/images/default-profile-banner.png"
+                src="/images/default-profile-banner.webp"
                 alt="banner"
                 class="rounded-3xl mb-2"
             >

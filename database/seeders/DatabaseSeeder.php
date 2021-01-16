@@ -41,7 +41,9 @@ class DatabaseSeeder extends Seeder
         Tweet::factory()->count(3)->for($jane)->create();
         Tweet::factory()->count(3)->for($mark)->create();
 
-
+        foreach(User::factory()->count(10)->create() as $user){
+            Tweet::factory()->count(5)->for($user)->create();
+        }
     }
 
 }
