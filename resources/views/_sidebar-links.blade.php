@@ -6,22 +6,12 @@
         <a href="/explore">Explore</a>
     </li>
     <li>
-        <a href="#">Notifications</a>
-    </li>
-    <li>
-        <a href="#">Messages</a>
-    </li>
-    <li>
-        <a href="#">Bookmarks</a>
-    </li>
-    <li>
-        <a href="#">Lists</a>
-    </li>
-    <li>
         <a href="{{ current_user()->profileRoute }}">Profile</a>
     </li>
     <li>
-        <a href="#">More</a>
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
     </li>
 </ul>
-<a href="#" class=""></a>

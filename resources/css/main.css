@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 
+button:focus {
+    @apply focus:outline-none;
+}
+
 .sidebar {
-    @apply bg-red-100;
     @apply flex flex-col lg:w-32;
 }
 
-.sidebar > ul > li > a {
+.sidebar a , .sidebar button {
     @apply font-bold text-lg mb-4 block
 }
 
@@ -22,8 +25,9 @@
 }
 
 .timeline .timeline-list {
-    @apply border border-gray-300 rounded-lg;
+    @apply border border-gray-300 rounded-lg mb-4;
 }
+
 
 .tweet-button {
     @apply rounded-lg shadow py-2 px-2 font-bold
@@ -31,10 +35,17 @@
 
 .is-active {
     @apply bg-blue-500 text-white;
+    @apply hover:bg-blue-600;
 }
 
 .is-default {
     @apply bg-gray-100 text-black;
+    @apply hover:bg-gray-200;
+}
+
+.is-danger {
+    @apply bg-red-500 text-white;
+    @apply hover:bg-red-600;
 }
 
 

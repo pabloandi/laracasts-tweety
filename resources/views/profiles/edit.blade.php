@@ -125,9 +125,10 @@
         </div>
 
         <div class="mb-6">
-            <button type="submit" class="tweet-button is-active hover:bg-blue-500">
+            <button type="submit" class="tweet-button is-active mr-4">
                 Submit
             </button>
+            <a href="{{ $user->profileRoute }}" class="tweet-button is-default">Cancel</a>
         </div>
 
     </form>

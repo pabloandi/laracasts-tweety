@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\FollowsController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TweetController;
 use App\Models\User;
@@ -28,7 +29,10 @@ Route::group(['middleware' => ['auth']], function () {
     ]);
 
     Route::post('profile/{user:username}/follow', [FollowsController::class, 'store'])->name('profile.follow');
-    Route::get('explore', [ExploreController::class, 'index'])->name('explore.index');
+    Route::get('explore', ExploreController::class)->name('explore.index');
+
+    Route::post('tweets/{tweet}/like', [LikeController::class, 'store'])->name('tweets.like');
+    Route::delete('tweets/{tweet}/like', [LikeController::class, 'destroy'])->name('tweets.dislike');
 });
 
 Route::get('profile/{user:username}', [ProfileController::class, 'show'])->name('profile.show');

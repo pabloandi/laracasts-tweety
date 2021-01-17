@@ -1,5 +1,5 @@
 <x-layout>
-    <section class="px-8">
+    <section class="px-8 mb-10">
         <main class="mx-auto">
             <div class="lg:flex lg:justify-between">
                 @auth

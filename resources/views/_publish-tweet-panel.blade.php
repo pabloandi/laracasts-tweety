@@ -7,6 +7,7 @@
             id="body"
             placeholder="What's up, doc?"
             required
+            autofocus
         ></textarea>
 
         <hr class="my-4">

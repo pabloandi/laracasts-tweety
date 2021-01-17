@@ -31167,9 +31167,12 @@ video {
           animation: bounce 1s infinite;
 }
 
+button:focus:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .sidebar {
-  --tw-bg-opacity: 1;
-  background-color: rgba(254, 226, 226, var(--tw-bg-opacity));
   display: flex;
   flex-direction: column;
 }
@@ -31180,12 +31183,12 @@ video {
   }
 }
 
-.sidebar > ul > li > a {
+.sidebar a, .sidebar button {
   display: block;
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1024px) {
@@ -31217,6 +31220,7 @@ video {
   border-color: rgba(209, 213, 219, var(--tw-border-opacity));
   border-radius: 0.5rem;
   border-width: 1px;
+  margin-bottom: 1rem;
 }
 
 .tweet-button {
@@ -31237,11 +31241,33 @@ video {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.is-active:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+}
+
 .is-default {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+
+.is-default:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
+
+.is-danger {
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.is-danger:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
 }
 
 .tweetbox textarea:focus-within {
@@ -31376,11 +31402,21 @@ video {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.form-group .btn-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+}
+
 .form-group .btn-link {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+
+.form-group .btn-link:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
